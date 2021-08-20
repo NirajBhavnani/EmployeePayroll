@@ -50,6 +50,9 @@ body{
 /* Mid part: Form */
 
 .container{
+    /* display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr); */
     background-color: #ffffff;
     padding: 20px;
     width: 50%;
@@ -68,11 +71,16 @@ body{
 .container .row-content{
     display: flex;
     margin-bottom: 30px;
+    align-items: center;
 }
 
-.container label{
+.container .row-content label{
     font-weight: 400;
-    margin: 10px 45px 0 40px;
+    margin: 10px;
+}
+
+.container input{
+    margin-left: 25px;
 }
 
 input[type=text]{
@@ -81,23 +89,57 @@ input[type=text]{
     border: solid #f1f1f1 3px;
 }
 
-/* Profile pic */
+/* Profile pic and gender radio buttons*/
 
-.radio-inputs{
-    width: 70%;
-}
-
-.radio-inputs label{
+/* For Labels/imgs (profile class) */
+.radio-inputs .profile{
     display: inline-flex;
     align-items: center;
     margin: 0 35px 0 0;
+    cursor: pointer;
 }
 
+/* For circles (radio-buttons) */
 .radio-inputs input{
    cursor: pointer;
    margin-right: 15px;
 }
 
-.profile{
+/* Labels/text of gender */
+.radio-inputs .gender{
+    display: inline-flex;
+    align-items: center;
+    margin-left: 0;
     cursor: pointer;
+}
+
+/* Checkbox butttons */
+
+/* For squares (checkboxes) */
+.checkbox-inputs input{
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* For labels/text */
+.checkbox-inputs .department{
+    display: inline-flex;
+    align-items: center;
+    margin: 0 8px 0 0;
+    cursor: pointer;
+}
+
+/* Slider */
+.slider input{
+    cursor: pointer;
+    width: 400px;
+}
+
+.slider .salary{
+    display: inline-flex;
+    align-items: center;
+}
+
+.slider .salary p{
+    margin-left: 20px;
 }
