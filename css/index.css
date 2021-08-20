@@ -8,6 +8,11 @@ body, html{
     min-height: 100vh;
 }
 
+body{
+    background-color: #f2f3f2
+    ;
+}
+
 .header{
     background-color: #ffffff;
 }
@@ -39,4 +44,38 @@ body, html{
     text-decoration: underline;
     font-family: 'Roboto', sans-serif;
     font-size: 25px;
+    font-weight: 300;
+}
+
+/* Mid part: Form */
+
+.container{
+    background-color: #ffffff;
+    padding: 20px;
+    width: 50%;
+    min-height: 100vh;
+    margin: 15px auto;
+    border: solid #C0C0C0 1px;
+    box-shadow: 7px 0 15px -4px  #C0C0C0, -7px 0 8px -4px  #C0C0C0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container h2{
+    font-weight: 700;
+    margin: 20px 0 40px 40px;
+}
+
+.container .row-content{
+    display: flex;
+}
+
+.container label{
+    font-weight: 400;
+    margin: 10px 45px 0 40px;
+}
+
+input[type=text]{
+    width: 70%;
+    padding: 10px;
+    border: solid #f1f1f1 3px;
 }
