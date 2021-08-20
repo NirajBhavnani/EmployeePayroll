@@ -143,3 +143,10 @@ input[type=text]{
 .slider .salary p{
     margin-left: 20px;
 }
+
+.dropdown{
+    margin-left: 20px;
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+}
