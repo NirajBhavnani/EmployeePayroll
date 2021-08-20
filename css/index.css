@@ -67,6 +67,7 @@ body{
 
 .container .row-content{
     display: flex;
+    margin-bottom: 30px;
 }
 
 .container label{
@@ -78,4 +79,25 @@ input[type=text]{
     width: 70%;
     padding: 10px;
     border: solid #f1f1f1 3px;
+}
+
+/* Profile pic */
+
+.radio-inputs{
+    width: 70%;
+}
+
+.radio-inputs label{
+    display: inline-flex;
+    align-items: center;
+    margin: 0 35px 0 0;
+}
+
+.radio-inputs input{
+   cursor: pointer;
+   margin-right: 15px;
+}
+
+.profile{
+    cursor: pointer;
 }
