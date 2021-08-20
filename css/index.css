@@ -3,3 +3,40 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body, html{
+    min-height: 100vh;
+}
+
+.header{
+    background-color: #ffffff;
+}
+
+.header nav{
+    display: flex;
+    justify-content: space-evenly;
+    width: 80%;
+}
+
+.left-part{
+    display: flex;
+}
+
+.empText{
+    color: #7c992c;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.payText{
+    color: #868e97;
+    text-transform: uppercase;
+    font-family: sans-serif;
+}
+
+.right-part{
+    color: dodgerblue;
+    text-decoration: underline;
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+}
