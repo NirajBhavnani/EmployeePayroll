@@ -45,7 +45,19 @@ class EmployeePayroll{
         this.eSalary = ob;
     }
     set startDate(ob) {
-        this.eStartDate = ob;
+      let input = new Date(ob);
+      console.log(input);
+    
+      let inputTime = input.getTime();
+    
+      const timeElapsed = Date.now();
+      let daysDifference = (timeElapsed - inputTime) / (1000 * 60 * 60 * 24);
+    
+      if (daysDifference <= 30) {
+        throw new Error("Start-Date");
+      } else {
+        return this.eStartDate = ob;
+      }
     }
     set notes(ob) {
         if(ob.length !==0){
