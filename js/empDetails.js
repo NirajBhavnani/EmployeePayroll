@@ -26,7 +26,7 @@ class EmployeePayroll{
 
     //setters
     set name(ob){
-        if (/^[a-zA-Z]{8,}$/.test(ob)) {
+        if (/^[A-Z][a-zA-Z]{2,}$/.test(ob)) {
             this.eName = ob;
             document.getElementById("name").classList.remove("error-class");
         }
@@ -63,7 +63,7 @@ document.getElementById("register-form").onsubmit = function(e) {
     e.preventDefault();
     const {
       name: {
-        value: name
+        value: name /* const name = e.target.Name.value; */
       },
       'profile' : {
         value: pic

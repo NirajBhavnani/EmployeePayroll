@@ -110,6 +110,7 @@ input[type=text]{
 /* For Labels/imgs (profile class) */
 .radio-inputs .profile{
     display: inline-flex;
+    flex-wrap: wrap;
     align-items: center;
     margin: 0 35px 0 0;
     cursor: pointer;
@@ -130,18 +131,22 @@ input[type=text]{
 }
 
 /* Checkbox butttons */
+.checkbox{
+    display: flex;
+    flex-wrap: wrap;
+}
 
 /* For squares (checkboxes) */
 .checkbox-inputs input{
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 2px;
 }
 
 /* For labels/text */
 .checkbox-inputs .department{
     display: inline-flex;
     align-items: center;
-    margin: 0 8px 0 0;
+    margin: 0 4px 0 0;
     cursor: pointer;
 }
 
@@ -151,7 +156,7 @@ input[type=text]{
     }
 
     .checkbox-inputs .department{
-        display: inline-block;
+        /* display: inline-block; */
         margin-left: 0;
     }
 }
@@ -184,15 +189,21 @@ input[type=text]{
     grid-template-columns: repeat(3, 1fr);
 }
 
+.notes{
+    display: flex;
+}
+
 .notes textarea{
     margin-left: 25px;
     resize: none;
     padding: 7px;
+    width: 100%;
     border: solid #f1f1f1 3px;
 }
 
 @media screen and (max-width: 576px) {
     .notes textarea{
+        margin-left: 0;
         padding: 5px;
         margin-top: 10px;
     }
@@ -227,6 +238,10 @@ input[type=text]{
 }
 
 @media screen and (max-width: 576px) {
+    .button-container{
+        grid-template-columns: 1fr;
+    }
+
     .button-container button{
         width: 5rem;
     }
