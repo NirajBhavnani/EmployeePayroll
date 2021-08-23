@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    min-height: 100vh;
+}
+
+body{
+    background-color: #f2f3f2;
+}
+
+.header{
+    background-color: #ffffff;
+    padding: 15px;
+    width: 100%;
+}
+
+.header nav{
+    display: flex;
+    padding-left: 20px;
+}
+
+.logo{
+    display: flex;
+}
+
+.empText{
+    color: #7c992c;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.payText{
+    color: #868e97;
+    text-transform: uppercase;
+    font-family: 'Montserrat' ,sans-serif;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+}
+
+.container{
+    width: 80%;
+    min-height: 100vh;
+    margin: auto;
+}
+
+.left{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 25%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.emp-total{
+    background-color: #7c992c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+.right{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+}
+
+.right button{
+    cursor: pointer;
+}
+
+.right .searchBtn{
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 3px 3px  #00000029
+}
+
+.right .newUserBtn{
+    background-color: #7c992c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 15px;
+}
+
+.table-container{
+    margin: auto;
+    padding-top: 30px;
+}
+
+.myTable{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.myTable thead{
+    background-color: #42515F;
+    color: #FFFFFF;
+}
+
+.myTable thead th{
+    padding: 20px 0;
+}
+
+.myTable tbody td{
+    padding: 5px 0;
+}
