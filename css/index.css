@@ -1,0 +1,41 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
+    min-height: 100vh;
+}
+
+body{
+    background-color: #f2f3f2;
+}
+
+.header{
+    background-color: #ffffff;
+    padding: 15px;
+}
+
+.header nav{
+    display: flex;
+    padding-left: 20px;
+    width: 80%;
+}
+
+.logo{
+    display: flex;
+}
+
+.empText{
+    color: #7c992c;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.payText{
+    color: #868e97;
+    text-transform: uppercase;
+    font-family: 'Montserrat' ,sans-serif;
+}
+
