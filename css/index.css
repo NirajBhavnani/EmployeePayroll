@@ -231,3 +231,8 @@ input[type=text]{
         width: 5rem;
     }
   }
+
+  /* adding red border to invalid textbox */
+.error-class {
+    border: solid 1px #e74c3c !important;
+  }
