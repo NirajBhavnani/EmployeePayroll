@@ -9,12 +9,12 @@ body, html{
 }
 
 body{
-    background-color: #f2f3f2
-    ;
+    background-color: #f2f3f2;
 }
 
 .header{
     background-color: #ffffff;
+    width: 100%;
 }
 
 .header nav{
@@ -47,6 +47,16 @@ body{
     font-weight: 300;
 }
 
+@media screen and (max-width: 576px){
+    .left-part{
+        font-size: small;
+    }
+
+    .right-part{
+        font-size: medium;
+    }
+}
+
 /* Mid part: Form */
 
 .container{
@@ -62,6 +72,12 @@ body{
     box-shadow: 7px 0 15px -4px  #C0C0C0, -7px 0 8px -4px  #C0C0C0;
     font-family: 'Roboto', sans-serif;
 }
+
+@media screen and (max-width: 576px) {
+    .container {
+      width: calc(100% - 15px);
+    }
+  }
 
 .container h2{
     font-weight: 700;
@@ -129,10 +145,27 @@ input[type=text]{
     cursor: pointer;
 }
 
+@media screen and (max-width: 576px) {
+    .checkbox-inputs input{
+        margin-right: 5px;
+    }
+
+    .checkbox-inputs .department{
+        display: inline-block;
+        margin-left: 0;
+    }
+}
+
 /* Slider */
 .slider input{
     cursor: pointer;
     width: 400px;
+}
+
+@media screen and (max-width: 576px) {
+    .slider input{
+        width: 200px;
+    }
 }
 
 .slider .salary{
@@ -152,10 +185,17 @@ input[type=text]{
 }
 
 .notes textarea{
-    margin-left: 20px;
+    margin-left: 25px;
     resize: none;
     padding: 7px;
     border: solid #f1f1f1 3px;
+}
+
+@media screen and (max-width: 576px) {
+    .notes textarea{
+        padding: 5px;
+        margin-top: 10px;
+    }
 }
 
 .button-container{
@@ -185,3 +225,9 @@ input[type=text]{
 .submit-button, .reset-button{
     margin-right: 12%;
 }
+
+@media screen and (max-width: 576px) {
+    .button-container button{
+        width: 5rem;
+    }
+  }
