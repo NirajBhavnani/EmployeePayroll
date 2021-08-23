@@ -15,12 +15,12 @@ body{
 .header{
     background-color: #ffffff;
     padding: 15px;
+    width: 100%;
 }
 
 .header nav{
     display: flex;
     padding-left: 20px;
-    width: 80%;
 }
 
 .logo{
