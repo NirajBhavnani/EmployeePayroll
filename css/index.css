@@ -150,3 +150,38 @@ input[type=text]{
     column-gap: 10px;
     grid-template-columns: repeat(3, 1fr);
 }
+
+.notes textarea{
+    margin-left: 20px;
+    resize: none;
+    padding: 7px;
+    border: solid #f1f1f1 3px;
+}
+
+.button-container{
+    display: grid;
+    grid-template-rows: 1;
+    grid-template-columns: 3fr 3fr;
+}
+
+.right-buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: end;
+}
+
+.button-container button{
+    width: 9rem;
+    height: 2.5rem;
+    border-radius: 4px;
+    border: 2px solid #E8E8E8;
+}
+
+.cancel-button{
+    margin-left: 5%;
+    margin-bottom: 5%;
+}
+
+.submit-button, .reset-button{
+    margin-right: 12%;
+}
