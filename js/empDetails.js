@@ -113,3 +113,20 @@ document.getElementById("register-form").onsubmit = function(e) {
     }
   }
   
+//   Key Press Check
+  document.getElementById("name").onkeyup = function(e) {
+    try {
+      employee.name = e.target.value;
+    }
+    catch (err) {
+      document.getElementById(err.message).classList.add("error-class");
+    }
+  };
+  document.getElementById("notes").onkeyup = function(e) {
+    try {
+      employee.notes = e.target.value;
+    }
+    catch (err) {
+      document.getElementById(err.message).classList.add("error-class");
+    }
+  };
