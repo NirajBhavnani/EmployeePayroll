@@ -94,3 +94,26 @@ body{
     border-radius: 15px;
 }
 
+.table-container{
+    margin: auto;
+    padding-top: 30px;
+}
+
+.myTable{
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+}
+
+.myTable thead{
+    background-color: #42515F;
+    color: #FFFFFF;
+}
+
+.myTable thead th{
+    padding: 20px 0;
+}
+
+.myTable tbody td{
+    padding: 5px 0;
+}
