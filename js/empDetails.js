@@ -115,6 +115,8 @@ document.getElementById("register-form").onsubmit = function(e) {
       employee.startDate = `${date} ${month} ${year}`;
       employee.notes = notes;
 
+      console.log(employee);
+
       employees.push({id: employees.length, employee: employee});
     }
     catch (err) {
