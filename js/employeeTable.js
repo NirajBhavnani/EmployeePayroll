@@ -29,7 +29,10 @@ function display(){
                                  <td>${data.eDepartment}</td>
                                  <td>${data.eSalary}</td>
                                  <td>${data.eStartDate}</td>
-                                 <td>Delete, Edit</td>
+                                 <td>
+                                 <button class="searchBtn"><i class="fa fa-trash"></i></button>
+                                 <button class="searchBtn"><i class="fa fa-edit"></i></button>
+                                 </td>
                                 </tr>
                             </tbody>`;
                             

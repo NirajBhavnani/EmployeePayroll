@@ -67,8 +67,9 @@ body{
     background-color: #7c992c;
     color: #ffffff;
     border: none;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-radius: 15px;
+    font-size: large;
 }
 
 .right{
@@ -87,15 +88,17 @@ body{
     padding: 10px 20px;
     border: none;
     border-radius: 25px;
-    box-shadow: 3px 3px  #00000029
+    box-shadow: 3px 3px  #00000029;
+    font-size: large;
 }
 
 .right .newUserBtn{
     background-color: #7c992c;
     color: #ffffff;
     border: none;
-    padding: 10px 30px;
+    padding: 10px 20px;
     border-radius: 15px;
+    font-size: large;
 }
 
 .table-container{
@@ -120,4 +123,13 @@ body{
 
 .myTable tbody td{
     padding: 5px 0;
+}
+
+.myTable tbody td button{
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: large;
+    background-color: inherit;
+    color: #42515F;
+    border: none;
 }

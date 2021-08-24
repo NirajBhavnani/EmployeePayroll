@@ -53,9 +53,6 @@ body{
 /* Mid part: Form */
 
 .container{
-    /* display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 1fr); */
     background-color: #ffffff;
     padding: 20px;
     width: 50%;
@@ -155,9 +152,16 @@ input[type=text]{
 }
 
 /* Slider */
+.slider-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+}
+
 .slider input{
     cursor: pointer;
     width: 400px;
+    margin-left: 0;
 }
 
 @media screen and (max-width: 576px) {
