@@ -35,6 +35,7 @@ function display(){
                             
     }
     document.querySelector('#myTable').innerHTML = innerHTML;
+    document.querySelector('#emp-total').innerHTML = EmployeePayrollList.length; //display total no. of employees
 }
 
 window.onload = function() {

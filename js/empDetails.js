@@ -119,8 +119,8 @@ document.getElementById("register-form").onsubmit = function(e) {
 
       let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
         
-      if(EmployeePayrollList != undefined){
-          EmployeePayrollList.push({id: employees.length, ...employee}); //Storing the same employee object with id
+      if(EmployeePayrollList != undefined){//check if it is empty or not
+          EmployeePayrollList.push({id: EmployeePayrollList.length, ...employee}); //Storing the same employee object with id
       }
       else{
           EmployeePayrollList = [{id: employees.length, ...employee}];
