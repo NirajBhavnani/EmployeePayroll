@@ -30,7 +30,7 @@ function display(){
                                  <td>${data.eSalary}</td>
                                  <td>${data.eStartDate}</td>
                                  <td>
-                                 <button class="searchBtn"><i class="fa fa-trash"></i></button>
+                                 <button class="searchBtn" onclick ="deleteID(${data.id})" alt="Delete"><i class="fa fa-trash"></i></button>
                                  <button class="searchBtn"><i class="fa fa-edit"></i></button>
                                  </td>
                                 </tr>
@@ -39,6 +39,20 @@ function display(){
     }
     document.querySelector('#myTable').innerHTML = innerHTML;
     document.querySelector('#emp-total').innerHTML = EmployeePayrollList.length; //display total no. of employees
+}
+
+function deleteID(nodeId){
+    let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
+    let newLocalPayrolllist = [];
+    localPayrolllist.forEach(emp => {
+        if (emp.id != nodeId) {
+            newLocalPayrolllist.push(emp)
+        }
+    localStorage.setItem(`EmployeeDetails`, JSON.stringify(newLocalPayrolllist))
+    })   
+
+    //refresh the page
+    display();
 }
 
 window.onload = function() {
