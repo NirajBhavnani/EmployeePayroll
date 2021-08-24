@@ -72,12 +72,12 @@ const employee = new EmployeePayroll();
 
 //Form submit
 document.getElementById("register-form").onsubmit = function(e) {
-    e.preventDefault();
+    e.preventDefault(); /* Prevents refreshing */
     const {
       name: {
         value: name /* const name = e.target.Name.value; */
       },
-      'profile' : {
+      profile : {
         value: pic
       },
       gender: {
@@ -117,7 +117,16 @@ document.getElementById("register-form").onsubmit = function(e) {
 
       console.log(employee);
 
-      employees.push({id: employees.length, employee: employee});
+      let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
+        
+      if(EmployeePayrollList != undefined){
+          EmployeePayrollList.push({id: employees.length, ...employee}); //Storing the same employee object with id
+      }
+      else{
+          EmployeePayrollList = [{id: employees.length, ...employee}];
+      }
+      localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
+
     }
     catch (err) {
       document.getElementById(err.message).classList.add("error-class");
