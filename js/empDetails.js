@@ -117,15 +117,7 @@ document.getElementById("register-form").onsubmit = function(e) {
 
       console.log(employee);
 
-      let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
-        
-      if(EmployeePayrollList != undefined){//check if it is empty or not
-          EmployeePayrollList.push({id: generateId(), ...employee}); //Storing the same employee object with id
-      }
-      else{
-          EmployeePayrollList = [{id: generateId(), ...employee}];
-      }
-      localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
+      createAndUpdateLocalStorage(employee); //Local Storage
 
     }
     catch (err) {
@@ -153,6 +145,18 @@ document.getElementById("register-form").onsubmit = function(e) {
       document.getElementById(err.message).classList.add("error-class");
     }
   };
+
+  function createAndUpdateLocalStorage(empObject) {
+    let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
+        
+      if(EmployeePayrollList != undefined){//check if it is empty or not
+          EmployeePayrollList.push({id: generateId(), ...empObject}); //Storing the same employee object with id
+      }
+      else{//if empty
+          EmployeePayrollList = [{id: generateId(), ...empObject}];
+      }
+      localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
+  }
 
   function generateId() {
     let employeeList = getEmpDataFromLocalStorage();
