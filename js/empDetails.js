@@ -120,10 +120,10 @@ document.getElementById("register-form").onsubmit = function(e) {
       let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
         
       if(EmployeePayrollList != undefined){//check if it is empty or not
-          EmployeePayrollList.push({id: EmployeePayrollList.length, ...employee}); //Storing the same employee object with id
+          EmployeePayrollList.push({id: generateId(), ...employee}); //Storing the same employee object with id
       }
       else{
-          EmployeePayrollList = [{id: employees.length, ...employee}];
+          EmployeePayrollList = [{id: generateId(), ...employee}];
       }
       localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
 
@@ -153,3 +153,19 @@ document.getElementById("register-form").onsubmit = function(e) {
       document.getElementById(err.message).classList.add("error-class");
     }
   };
+
+  function generateId() {
+    let employeeList = getEmpDataFromLocalStorage();
+    let randomId = 1;
+    for(var emp in employeeList){
+      randomId = Math.floor(Math.random() * 1000) + 1;
+        if (emp.id == randomId) continue;
+    }
+    console.log(randomId);
+    return randomId;
+  }
+
+  function getEmpDataFromLocalStorage() {
+    return localStorage.getItem("EmployeeDetails") ?
+        JSON.parse(localStorage.getItem("EmployeeDetails")) : [];
+};
