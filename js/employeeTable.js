@@ -1,3 +1,10 @@
+window.addEventListener('DOMContentLoaded', (event)=> {
+    empPayReset = JSON.parse(localStorage.getItem('EmployeeDetails'));
+    document.querySelector('#emp-total').textContent = empPayReset.length;//display total no. of employees
+    localStorage.removeItem('empObject');
+    display();
+  });
+  
 function display(){
 
     let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); //Fetching the string type data from local storage
@@ -31,14 +38,14 @@ function display(){
                                  <td>${data.eStartDate}</td>
                                  <td>
                                  <button class="searchBtn" onclick ="deleteID(${data.id})" alt="Delete"><i class="fa fa-trash"></i></button>
-                                 <button class="searchBtn"><i class="fa fa-edit"></i></button>
+                                 <button class="searchBtn" onclick ="updateForm(${data.id})"><i class="fa fa-edit"></i></button>
                                  </td>
                                 </tr>
                             </tbody>`;
                             
     }
     document.querySelector('#myTable').innerHTML = innerHTML;
-    document.querySelector('#emp-total').innerHTML = EmployeePayrollList.length; //display total no. of employees
+   
 }
 
 function deleteID(nodeId){
@@ -49,12 +56,17 @@ function deleteID(nodeId){
             newLocalPayrolllist.push(emp)
         }
     localStorage.setItem(`EmployeeDetails`, JSON.stringify(newLocalPayrolllist))
-    })   
+    });
 
     //refresh the page
     display();
 }
 
-window.onload = function() {
-    display();
-  };
+// Object creation and assigning the employee tuple in the localStorage (empObj)
+function updateForm(nodeId) {
+    let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
+    let empPayrollData = localPayrolllist.find(empData => empData.id == nodeId)
+    if(!empPayrollData) return;
+    localStorage.setItem('empObject', JSON.stringify(empPayrollData));
+    window.location.replace('/pages/employeePayroll.html');
+}

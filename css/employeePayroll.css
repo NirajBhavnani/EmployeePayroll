@@ -152,6 +152,14 @@ input[type=text]{
 }
 
 /* Slider */
+.slider{
+    width: 100%;
+}
+
+.slider .salary{
+    width: 100%;
+}
+
 .slider-container{
     display: flex;
     flex-wrap: wrap;
@@ -160,13 +168,13 @@ input[type=text]{
 
 .slider input{
     cursor: pointer;
-    width: 400px;
+    width: 100%;
     margin-left: 0;
 }
 
 @media screen and (max-width: 576px) {
     .slider input{
-        width: 200px;
+        width: 80%;
     }
 }
 
@@ -207,15 +215,24 @@ input[type=text]{
 }
 
 .button-container{
-    display: grid;
-    grid-template-rows: 1;
-    grid-template-columns: 3fr 3fr;
+    display: inline-flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.left-button{
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
 }
 
 .right-buttons{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: end;
+    display: inline-flex;
+    justify-content: space-evenly;
+    align-items: right;
+    width: 50%;
 }
 
 .button-container button{
@@ -223,6 +240,7 @@ input[type=text]{
     height: 2.5rem;
     border-radius: 4px;
     border: 2px solid #E8E8E8;
+    cursor: pointer;
 }
 
 .cancel-button{

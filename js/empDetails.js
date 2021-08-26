@@ -1,4 +1,10 @@
 const employees = new Array();
+let isUpdate = false;
+let employeePayrollObj = {};
+
+window.addEventListener('DOMContentLoaded', (event)=> {
+  checkForUpdate();
+});
 
 class EmployeePayroll{
     // getters
@@ -72,10 +78,11 @@ const employee = new EmployeePayroll();
 
 //Form submit
 document.getElementById("register-form").onsubmit = function(e) {
-    e.preventDefault(); /* Prevents refreshing */
+    e.preventDefault(); // Prevents refreshing
+    e.stopPropagation(); //if it failed, to show the populated data on the same page
     const {
       name: {
-        value: name /* const name = e.target.Name.value; */
+        value: name // const name = e.target.Name.value;
       },
       profile : {
         value: pic
@@ -117,6 +124,7 @@ document.getElementById("register-form").onsubmit = function(e) {
 
       console.log(employee);
 
+      // setPayrollObj();
       createAndUpdateLocalStorage(employee); //Local Storage
 
     }
@@ -146,18 +154,31 @@ document.getElementById("register-form").onsubmit = function(e) {
     }
   };
 
+  // Creation of local storage and updation
   function createAndUpdateLocalStorage(empObject) {
-    let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); 
+    let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails'));
+    let employeeObject = JSON.parse(localStorage.getItem('empObject'));
         
       if(EmployeePayrollList != undefined){//check if it is empty or not
-          EmployeePayrollList.push({id: generateId(), ...empObject}); //Storing the same employee object with id
+        
+        if(!employeeObject){
+          EmployeePayrollList.push({id: generateId(), ...empObject});
+        }
+
+        else{
+          EmployeePayrollList = EmployeePayrollList.filter(emp => emp.id != employeeObject.id);
+          EmployeePayrollList.push({id: employeeObject.id, ...empObject});
+        }
       }
+
       else{//if empty
           EmployeePayrollList = [{id: generateId(), ...empObject}];
       }
       localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
+      window.location.replace('./'); //redirect to home page
   }
 
+  // Generating random id
   function generateId() {
     let employeeList = getEmpDataFromLocalStorage();
     let randomId = 1;
@@ -169,7 +190,109 @@ document.getElementById("register-form").onsubmit = function(e) {
     return randomId;
   }
 
+  // Just another way of retrieving employee data from localStorage
   function getEmpDataFromLocalStorage() {
     return localStorage.getItem("EmployeeDetails") ?
         JSON.parse(localStorage.getItem("EmployeeDetails")) : [];
 };
+
+// check whether we are creating a new employee or editing
+function checkForUpdate(){
+  let localPayrolllist = localStorage.getItem("empObject");
+  isUpdate = localPayrolllist ? true : false;//if it is undefined set false, if it is defined i.e already present then set true
+  if(!isUpdate) return;//if false
+  employeePayrollObj = JSON.parse(localPayrolllist);
+  setForm();
+}
+
+// Retrieving information of the employee in the form
+const setForm = () => {
+  let employeePayrollObj = JSON.parse(localStorage.getItem("empObject"));
+  setValue('#name', employeePayrollObj.eName);
+  setSelectedValues('[name=profile]', employeePayrollObj.eProfile);
+  setSelectedValues('[name=gender]', employeePayrollObj.eGender);
+  setSelectedValues('[name=department]', employeePayrollObj.eDepartment);
+  setValue('#salary', employeePayrollObj.eSalary);
+  setTextValue('#salary-text', employeePayrollObj.eSalary);
+  setValue('#notes', employeePayrollObj.eNotes);
+  let date = stringifyDate(employeePayrollObj.eStartDate).split(" ");
+  setValue('#day', date[0]);
+  setValue('#month', date[1]);
+  setValue('#year', date[2]);
+}
+
+const setValue = (id, value) =>{
+  const element = document.querySelector(id);
+  element.value = value;
+}
+
+const setSelectedValues = (propertyValue, value) => {
+  let allItems = document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+    if(Array.isArray(value)){//this is done for department checkboxes
+      if(value.includes(item.value)){
+        item.checked = true;
+      }
+    }
+    else if(item.value === value){
+      item.checked = true;
+    }
+  });
+}
+
+
+const setTextValue = (id, value) =>{
+  const element = document.querySelector(id);
+  element.textContent = value;
+}
+
+const stringifyDate = (date) => {
+  const options = {day: 'numeric', month: 'short', year: 'numeric'};
+  const newDate = !date ? "undefined":
+  new Date(Date.parse(date)).toLocaleDateString('en-GB', options);
+  return newDate;
+}
+
+const resetForm = () =>{
+  setValue('#name', '');
+  unsetSelectedValues('[name=profile]');
+  unsetSelectedValues('[name=gender]');
+  unsetSelectedValues('[name=department]');
+  setValue('#salary', '');
+  setTextValue('#salary-text', '10000');
+  setValue('#notes', '');
+  setSelectedIndex('#day', 0);
+  setSelectedIndex('#month', 0);
+  setSelectedIndex('#year', 0);
+}
+
+const unsetSelectedValues = (propertyValue) =>{
+  let allItems = document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+    item.checked = false;
+  });
+}
+
+const cancelBtn = () =>{
+  resetForm();
+  window.location.replace('/pages/index.html');
+}
+
+const setSelectedIndex = (id, index) =>{
+  const element = document.querySelector(id);
+  element.selectedIndex = index;
+}
+
+const getInputValueById = (id) => {
+  let value = document.querySelector(id).value;
+  return value;
+}
+
+const getSelectedValues = (propertyValue) =>{
+  let allItems = document.querySelectorAll(propertyValue);
+  let setItems = [];
+  allItems.forEach(item => {
+    if(item.checked) setItems.push(item.value);
+  });
+  return setItems;
+}
