@@ -33,6 +33,7 @@
                 <div class="emp-total" id="emp-total">20</div>
             </div>
             <div class="right">
+                <input type="text" class="search-bar-input" placeholder="Enter your search" id="search-bar">
                 <button class="searchBtn"><i class="fa fa-search"></i></button>
                 <button class="newUserBtn" onclick="location.href ='../pages/employeePayroll.html'">+ Add new user</button>
             </div>
@@ -46,6 +47,15 @@
     </div>
 
     <script src="/js/employeeTable.js"></script>
+    <!-- For search box -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(".searchBtn").click(function(){
+        $(".search-bar-input").toggleClass("active").focus().val();
+        $(this).toggleClass("animate");
+        $(".search-bar-input").val("");
+        });
+    </script>
     
 </body>
 </html>

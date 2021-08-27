@@ -70,3 +70,26 @@ function updateForm(nodeId) {
     localStorage.setItem('empObject', JSON.stringify(empPayrollData));
     window.location.replace('/pages/employeePayroll.html');
 }
+
+// function search(){
+//     var searchQuery = document.querySelector('#search-bar').value;
+
+//     var localStorageItem = localStorage.getItem(searchQuery);
+
+//     var elementValue = $('#myTable')
+//     .find('tr#key_' + localStorageItem)
+//     .children('td.two')
+//     .text();
+
+//   console.log(elementValue);
+// }
+
+// const searchBar = document.getElementById('search-bar').value;
+// searchBar.addEventListener('keyup', function(e){
+//     const term = e.target.value.toLowerCase();
+//     const emps = JSON.parse(localStorage.getItem(`EmployeeDetails`));
+//     emps = emps.filter(empData => empData.eName == term);
+//     console.log(emps);
+//     if(!emps) return;
+//     localStorage.setItem('empSearch', JSON.stringify(emps));
+// });
