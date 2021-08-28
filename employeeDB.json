@@ -1,0 +1,49 @@
+{
+    "employees": [
+      {
+        "id": 1,
+        "eProfile": "/assets/images/Ellipse -2.png",
+        "eName": "Darshan",
+        "eGender": "Male",
+        "eDepartment": ["Finance"],
+        "eSalary": "81870",
+        "eStartDate": "1 Jan 2008"
+      },
+      {
+        "id": 2,
+        "eProfile": "/assets/images/Ellipse -3.png",
+        "eName": "Niraj",
+        "eGender": "Male",
+        "eDepartment": ["Marketing & Sales", "Finance"],
+        "eSalary": "91870",
+        "eStartDate": "1 Jan 2008"
+      },
+      {
+        "id": 3,
+        "eProfile": "/assets/images/Ellipse -1.png",
+        "eName": "Thejashree",
+        "eGender": "Female",
+        "eDepartment": ["Marketing & Sales", "Finance"],
+        "eSalary": "91870",
+        "eStartDate": "1 Jan 2008"
+      },
+      {
+        "id": 4,
+        "eProfile": "/assets/images/Ellipse -4.png",
+        "eName": "Komal",
+        "eGender": "Female",
+        "eDepartment": ["Marketing & Sales", "Finance"],
+        "eSalary": "91870",
+        "eStartDate": "1 Jan 2008"
+      },
+      {
+        "id": 5,
+        "eProfile": "/assets/images/Ellipse -2.png",
+        "eName": "Aditya",
+        "eGender": "Male",
+        "eDepartment": ["Finance"],
+        "eSalary": "81870",
+        "eStartDate": "1 Jan 2008"
+      }
+    ]
+  }

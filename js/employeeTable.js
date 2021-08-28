@@ -3,11 +3,16 @@ window.addEventListener('DOMContentLoaded', (event)=> {
     document.querySelector('#emp-total').textContent = empPayReset.length;//display total no. of employees
     localStorage.removeItem('empObject');
     display();
+    // makeAJAXCall('GET', 'http://localhost:3000/employees');
   });
   
-function display(){
+async function display(){
 
-    let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); //Fetching the string type data from local storage
+    // let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); //Fetching the string type data from local storage
+
+    try{
+    let EmployeePayrollList1 = await makeAJAXCall('GET', 'http://localhost:3000/employees');
+    let EmployeePayrollList = JSON.parse(EmployeePayrollList1);
         
     let headerHTML = `<thead>
                      <tr>
@@ -45,7 +50,10 @@ function display(){
                             
     }
     document.querySelector('#myTable').innerHTML = innerHTML;
-   
+}
+catch(error){
+    console.log(error);
+}
 }
 
 function deleteID(nodeId){
