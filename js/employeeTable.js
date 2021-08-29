@@ -3,7 +3,6 @@ window.addEventListener('DOMContentLoaded', (event)=> {
     document.querySelector('#emp-total').textContent = empPayReset.length;//display total no. of employees
     localStorage.removeItem('empObject');
     display();
-    // makeAJAXCall('GET', 'http://localhost:3000/employees');
   });
   
 async function display(){
@@ -11,7 +10,7 @@ async function display(){
     // let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); //Fetching the string type data from local storage
 
     try{
-    let EmployeePayrollList1 = await makeAJAXCall('GET', 'http://localhost:3000/employees');
+    let EmployeePayrollList1 = await makeAJAXCall('GET', site_properties.data_url);
     let EmployeePayrollList = JSON.parse(EmployeePayrollList1);
         
     let headerHTML = `<thead>
@@ -56,18 +55,25 @@ catch(error){
 }
 }
 
-function deleteID(nodeId){
-    let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
-    let newLocalPayrolllist = [];
-    localPayrolllist.forEach(emp => {
-        if (emp.id != nodeId) {
-            newLocalPayrolllist.push(emp)
-        }
-    localStorage.setItem(`EmployeeDetails`, JSON.stringify(newLocalPayrolllist))
-    });
+async function deleteID(nodeId){
+    // let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
+    // let newLocalPayrolllist = [];
+    // localPayrolllist.forEach(emp => {
+    //     if (emp.id != nodeId) {
+    //         newLocalPayrolllist.push(emp)
+    //     }
+    // localStorage.setItem(`EmployeeDetails`, JSON.stringify(newLocalPayrolllist))
+    // });
 
-    //refresh the page
-    display();
+    try {
+        await makeAJAXCall('DELETE', `${site_properties.data_url}/${nodeId}`, true);
+    } catch (error) {
+        console.error(error);
+    }
+    finally{
+        //refresh the page
+        display();
+    }
 }
 
 // Object creation and assigning the employee tuple in the localStorage (empObj)
