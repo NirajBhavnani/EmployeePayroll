@@ -1,13 +1,16 @@
+// onload
 window.addEventListener('DOMContentLoaded', (event)=> {
-    empPayReset = JSON.parse(localStorage.getItem('EmployeeDetails'));
-    document.querySelector('#emp-total').textContent = empPayReset.length;//display total no. of employees
-    localStorage.removeItem('empObject');
+    
+    makeAJAXCall('GET', site_properties.data_url, true).then(data => {
+        empPayReset = JSON.parse(data);
+        document.querySelector('#emp-total').textContent = empPayReset.length;//display total no. of employees
+    });
+
     display();
   });
   
+// Table creation
 async function display(){
-
-    // let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails')); //Fetching the string type data from local storage
 
     try{
     let EmployeePayrollList1 = await makeAJAXCall('GET', site_properties.data_url);
@@ -56,15 +59,6 @@ catch(error){
 }
 
 async function deleteID(nodeId){
-    // let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
-    // let newLocalPayrolllist = [];
-    // localPayrolllist.forEach(emp => {
-    //     if (emp.id != nodeId) {
-    //         newLocalPayrolllist.push(emp)
-    //     }
-    // localStorage.setItem(`EmployeeDetails`, JSON.stringify(newLocalPayrolllist))
-    // });
-
     try {
         await makeAJAXCall('DELETE', `${site_properties.data_url}/${nodeId}`, true);
     } catch (error) {
@@ -76,13 +70,9 @@ async function deleteID(nodeId){
     }
 }
 
-// Object creation and assigning the employee tuple in the localStorage (empObj)
+// Redirecting to particular employee form using id
 function updateForm(nodeId) {
-    let localPayrolllist = JSON.parse(localStorage.getItem(`EmployeeDetails`));
-    let empPayrollData = localPayrolllist.find(empData => empData.id == nodeId)
-    if(!empPayrollData) return;
-    localStorage.setItem('empObject', JSON.stringify(empPayrollData));
-    window.location.replace('/pages/employeePayroll.html');
+    window.location.replace(`/pages/employeePayroll.html?id=${nodeId}`);
 }
 
 // function search(){

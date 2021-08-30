@@ -9,7 +9,8 @@
         "Finance"
       ],
       "eSalary": "81870",
-      "eStartDate": "1 Jan 2008"
+      "eStartDate": "1 Jan 2008",
+      "eNotes": "Bhaijaan"
     },
     {
       "id": 2,
@@ -21,7 +22,8 @@
         "Finance"
       ],
       "eSalary": "91870",
-      "eStartDate": "1 Jan 2008"
+      "eStartDate": "1 Jan 2008",
+      "eNotes": "Bhaijaan"
     },
     {
       "id": 3,
@@ -33,18 +35,33 @@
         "Finance"
       ],
       "eSalary": "91870",
-      "eStartDate": "1 Jan 2008"
+      "eStartDate": "1 Jan 2008",
+      "eNotes": "Bhaijaan"
     },
     {
-      "id": 5,
-      "eProfile": "/assets/images/Ellipse -2.png",
+      "eNotes": "Bhaijaan hello",
       "eName": "Aditya",
+      "eProfile": "/assets/images/Ellipse -2.png",
+      "eGender": "Male",
+      "eDepartment": [
+        "HR",
+        "Finance"
+      ],
+      "eSalary": "81870",
+      "eStartDate": "3 Jan 2008",
+      "id": 5
+    },
+    {
+      "eName": "Smit",
+      "eProfile": "/assets/images/Ellipse -3.png",
       "eGender": "Male",
       "eDepartment": [
         "Finance"
       ],
-      "eSalary": "81870",
-      "eStartDate": "1 Jan 2008"
+      "eSalary": "99283",
+      "eStartDate": "8 Jan 2003",
+      "eNotes": "yo bro wassup",
+      "id": 6
     }
   ]
 }

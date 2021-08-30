@@ -1,6 +1,5 @@
-const employees = new Array();
-let isUpdate = false;
-let employeePayrollObj = {};
+let isUpdate = false; //Boolean to check whether it is edit mode or not
+let employeePayrollObj = {}; //storing the employee object value for retrieving the data from JSON server and displaying on the form
 
 window.addEventListener('DOMContentLoaded', (event)=> {
   checkForUpdate();
@@ -80,6 +79,8 @@ const employee = new EmployeePayroll();
 document.getElementById("register-form").onsubmit = function(e) {
     e.preventDefault(); // Prevents refreshing
     e.stopPropagation(); //if it failed, to show the populated data on the same page
+
+    // Creating employee object with required parameters
     const {
       name: {
         value: name // const name = e.target.Name.value;
@@ -114,6 +115,7 @@ document.getElementById("register-form").onsubmit = function(e) {
     });
   
     try {
+      // initialising employee object
       employee.name = name;
       employee.profile = pic;
       employee.gender = gender;
@@ -124,8 +126,8 @@ document.getElementById("register-form").onsubmit = function(e) {
 
       console.log(employee);
 
-      // setPayrollObj();
-      createAndUpdateLocalStorage(employee); //Local Storage
+      // Calling the function to add/edit
+      createAndUpdateJSONServer(employee);
 
     }
     catch (err) {
@@ -135,6 +137,7 @@ document.getElementById("register-form").onsubmit = function(e) {
       console.log(employees);
     }
   }
+
   
 //   Key Press Check
   document.getElementById("name").onkeyup = function(e) {
@@ -154,72 +157,65 @@ document.getElementById("register-form").onsubmit = function(e) {
     }
   };
 
-  // Creation of local storage and updation
-  function createAndUpdateLocalStorage(empObject) {
-    let EmployeePayrollList = JSON.parse(localStorage.getItem('EmployeeDetails'));
-    let employeeObject = JSON.parse(localStorage.getItem('empObject'));
-        
-      if(EmployeePayrollList != undefined){//check if it is empty or not
-        
-        if(!employeeObject){
-          EmployeePayrollList.push({id: generateId(), ...empObject});
-        }
 
-        else{
-          EmployeePayrollList = EmployeePayrollList.filter(emp => emp.id != employeeObject.id);
-          EmployeePayrollList.push({id: employeeObject.id, ...empObject});
-        }
-      }
 
-      else{//if empty
-          EmployeePayrollList = [{id: generateId(), ...empObject}];
+  // Add/Edit Employee Details in JSON
+  async function createAndUpdateJSONServer(empObject) {
+    let searchObj = new URLSearchParams(window.location.search);
+    let localPayroll = Object.fromEntries(searchObj.entries());
+    try {
+      if(localPayroll.id){
+        await makeAJAXCall('PUT', `${site_properties.data_url}/${localPayroll.id}`, true, empObject);
       }
-      localStorage.setItem('EmployeeDetails', JSON.stringify(EmployeePayrollList)); //Overriding the existing data of objects and converting the objects to string
+      else{
+        await makeAJAXCall('POST', site_properties.data_url, true, empObject);
+      }
       window.location.replace('./'); //redirect to home page
-  }
-
-  // Generating random id
-  function generateId() {
-    let employeeList = getEmpDataFromLocalStorage();
-    let randomId = 1;
-    for(var emp in employeeList){
-      randomId = Math.floor(Math.random() * 1000) + 1;
-        if (emp.id == randomId) continue;
+    } catch (error) {
+      console.error(error);
     }
-    console.log(randomId);
-    return randomId;
   }
 
-  // Just another way of retrieving employee data from localStorage
-  function getEmpDataFromLocalStorage() {
-    return localStorage.getItem("EmployeeDetails") ?
-        JSON.parse(localStorage.getItem("EmployeeDetails")) : [];
-};
 
 // check whether we are creating a new employee or editing
 function checkForUpdate(){
-  let localPayrolllist = localStorage.getItem("empObject");
-  isUpdate = localPayrolllist ? true : false;//if it is undefined set false, if it is defined i.e already present then set true
+  
+  let searchObj = new URLSearchParams(window.location.search);
+  let localPayroll = Object.fromEntries(searchObj.entries());
+  
+  isUpdate = localPayroll ? true : false;//if it is undefined set false, if it is defined i.e already present then set true
   if(!isUpdate) return;//if false
-  employeePayrollObj = JSON.parse(localPayrolllist);
-  setForm();
+  
+  set_Form();
 }
 
 // Retrieving information of the employee in the form
-const setForm = () => {
-  let employeePayrollObj = JSON.parse(localStorage.getItem("empObject"));
-  setValue('#name', employeePayrollObj.eName);
-  setSelectedValues('[name=profile]', employeePayrollObj.eProfile);
-  setSelectedValues('[name=gender]', employeePayrollObj.eGender);
-  setSelectedValues('[name=department]', employeePayrollObj.eDepartment);
-  setValue('#salary', employeePayrollObj.eSalary);
-  setTextValue('#salary-text', employeePayrollObj.eSalary);
-  setValue('#notes', employeePayrollObj.eNotes);
-  let date = stringifyDate(employeePayrollObj.eStartDate).split(" ");
-  setValue('#day', date[0]);
-  setValue('#month', date[1]);
-  setValue('#year', date[2]);
+const set_Form= async () =>{
+  let searchObj = new URLSearchParams(window.location.search);
+  let localPayroll = Object.fromEntries(searchObj.entries());
+  try {
+    let employeePayrollObj = JSON.parse(await makeAJAXCall('GET', `${site_properties.data_url}/${localPayroll.id}`));
+    console.log(employeePayrollObj);
+
+    setValue('#name', employeePayrollObj.eName);
+    setSelectedValues('[name=profile]', employeePayrollObj.eProfile);
+    setSelectedValues('[name=gender]', employeePayrollObj.eGender);
+    setSelectedValues('[name=department]', employeePayrollObj.eDepartment);
+    setValue('#salary', employeePayrollObj.eSalary);
+    setTextValue('#salary-text', employeePayrollObj.eSalary);
+    setValue('#notes', employeePayrollObj.eNotes);
+    let date = stringifyDate(employeePayrollObj.eStartDate).split(" ");
+    setValue('#day', date[0]);
+    setValue('#month', date[1]);
+    setValue('#year', date[2]);
+    
+  } catch (error) {
+    console.error(error)
+  }
 }
+
+
+// Functions for setting the form values
 
 const setValue = (id, value) =>{
   const element = document.querySelector(id);
