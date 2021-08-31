@@ -61,6 +61,19 @@
       "eStartDate": "8 Jan 2003",
       "eNotes": "yo bro wassup",
       "id": 6
+    },
+    {
+      "eName": "NirajBhavnani",
+      "eNotes": "Hello",
+      "eProfile": "/assets/images/Ellipse -2.png",
+      "eGender": "Male",
+      "eDepartment": [
+        "Marketing & Sales",
+        "Finance"
+      ],
+      "eSalary": "36951",
+      "eStartDate": "2 Jan 2001",
+      "id": 7
     }
   ],
   "credentials": [
