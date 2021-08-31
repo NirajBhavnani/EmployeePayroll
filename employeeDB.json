@@ -39,16 +39,15 @@
       "eNotes": "Bhaijaan"
     },
     {
-      "eNotes": "Bhaijaan hello",
       "eName": "Aditya",
       "eProfile": "/assets/images/Ellipse -2.png",
       "eGender": "Male",
       "eDepartment": [
-        "HR",
-        "Finance"
+        "HR"
       ],
-      "eSalary": "81870",
-      "eStartDate": "3 Jan 2008",
+      "eSalary": "103511",
+      "eStartDate": "6 Jan 2008",
+      "eNotes": "Bhaijaan hello",
       "id": 5
     },
     {
