@@ -62,5 +62,17 @@
       "eNotes": "yo bro wassup",
       "id": 6
     }
+  ],
+  "credentials": [
+    {
+      "phone": "9876543210",
+      "password": "Admin@123",
+      "email": "admin@employeepayroll.com"
+    },
+    {
+      "phone": "9876543211",
+      "password": "Admin@456",
+      "email": "admin2@employeepayroll.com"
+    }
   ]
 }

@@ -1,5 +1,9 @@
 // onload
 window.addEventListener('DOMContentLoaded', (event)=> {
+
+    if(!localStorage.getItem('loginKey')){
+        window.location.href = `./employeePayrollLogin.html?redirect=${encodeURI(window.location.href)}`
+    }
     
     makeAJAXCall('GET', site_properties.data_url, true).then(data => {
         empPayReset = JSON.parse(data);

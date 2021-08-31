@@ -2,6 +2,10 @@ let isUpdate = false; //Boolean to check whether it is edit mode or not
 let employeePayrollObj = {}; //storing the employee object value for retrieving the data from JSON server and displaying on the form
 
 window.addEventListener('DOMContentLoaded', (event)=> {
+  if(!localStorage.getItem('loginKey')){
+    window.location.href = `./employeePayrollLogin.html?redirect=${encodeURI(window.location.href)}`
+}
+
   checkForUpdate();
 });
 

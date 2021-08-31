@@ -28,37 +28,7 @@ function makeAJAXCall(methodType, url, async=true, data=null){
     });
 }
 
-var baseUrl = 'http://localhost:3000/employees';
-var baseUrl2 = 'http://localhost:3000/employees/5';
-var baseUrl3 = 'http://localhost:3000/employees/5';
-        
-function fetchUser(data){
-    console.log('Displaying successful', data);
-}
-
-function deleteUser(data){
-    console.log(data)
-}
-
-function addData(data){
-    console.log(data);
-}
-
-var userData = {
-    "id": 5,
-    "eProfile": "/assets/images/Ellipse -2.png",
-    "eName": "Aditya",
-    "eGender": "Male",
-    "eDepartment": ["Finance"],
-    "eSalary": "81870",
-    "eStartDate": "1 Jan 2008"
-}
-
-var newUserData = {
-    "eProfile": "/assets/images/Ellipse -3.png",
-    "eName": "Smit",
-    "eGender": "Male",
-    "eDepartment": ["Finance"],
-    "eSalary": "81870",
-    "eStartDate": "1 Jan 2008"
-}
+document.querySelector(".logout").addEventListener('click', ()=>{
+    localStorage.removeItem('loginKey');
+    window.location.replace(site_properties.login_url);
+})
