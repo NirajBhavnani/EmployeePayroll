@@ -48,8 +48,8 @@ body{
     background-color: #7c992c;
     color: #ffffff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
+    padding: 10px 15px;
+    border-radius: 50px;
     font-size: large;
     cursor: pointer;
 }

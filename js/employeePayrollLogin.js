@@ -31,7 +31,7 @@ async function validateCredentials() {
         params = Object.fromEntries(urlSearchParams.entries());
         var redirectUrl = params.redirect || "./";
 
-        localStorage.setItem("loginKey", "true");
+        localStorage.setItem("loginKey", JSON.stringify(_credential[0]));
         window.location.replace(redirectUrl);
       } else {
         console.log("Password mismatch");
