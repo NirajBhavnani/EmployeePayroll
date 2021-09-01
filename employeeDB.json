@@ -63,8 +63,7 @@
       "id": 6
     },
     {
-      "eName": "NirajBhavnani",
-      "eNotes": "Hello",
+      "eName": "Niraj",
       "eProfile": "/assets/images/Ellipse -2.png",
       "eGender": "Male",
       "eDepartment": [
@@ -73,7 +72,32 @@
       ],
       "eSalary": "36951",
       "eStartDate": "2 Jan 2001",
+      "eNotes": "Hello",
       "id": 7
+    },
+    {
+      "eName": "Amit",
+      "eNotes": "Hey",
+      "eProfile": "/assets/images/Ellipse -2.png",
+      "eGender": "Male",
+      "eDepartment": [
+        "Admin"
+      ],
+      "eSalary": "71712",
+      "eStartDate": "20 Jan 2001",
+      "id": 8
+    },
+    {
+      "eName": "Gaurang",
+      "eNotes": "Yaa",
+      "eProfile": "/assets/images/Ellipse -3.png",
+      "eGender": "Male",
+      "eDepartment": [
+        "Finance"
+      ],
+      "eSalary": "56475",
+      "eStartDate": "13 Jan 2001",
+      "id": 9
     }
   ],
   "credentials": [

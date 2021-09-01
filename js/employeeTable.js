@@ -45,7 +45,6 @@ function populateTable(dataList) {
   let employeeDataArr = dataList;
 
   for (const data of employeeDataArr) {
-    console.log(data);
     innerHTML = `${innerHTML}
                             <tbody>
                                 <tr>
@@ -81,19 +80,7 @@ function updateForm(nodeId) {
   window.location.replace(`/pages/employeePayroll.html?id=${nodeId}`);
 }
 
-// function search(){
-//     var searchQuery = document.querySelector('#search-bar').value;
-
-//     var localStorageItem = localStorage.getItem(searchQuery);
-
-//     var elementValue = $('#myTable')
-//     .find('tr#key_' + localStorageItem)
-//     .children('td.two')
-//     .text();
-
-//   console.log(elementValue);
-// }
-
+//Search Functionality
 document
   .getElementById("search-bar")
   .addEventListener("keyup", async function (e) {
@@ -108,7 +95,7 @@ document
       localStorage.setItem("empSearch", JSON.stringify(emp));
 
       let searchList = JSON.parse(localStorage.getItem("empSearch"));
-      if (term !== undefined) {
+      if (term!=='') {
         populateTable(searchList);
         localStorage.removeItem("empSearch");
       } else {
@@ -117,7 +104,4 @@ document
     } catch (error) {
       console.error(error);
     }
-    //   finally{
-    //       display();
-    //   }
   });
