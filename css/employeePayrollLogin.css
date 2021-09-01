@@ -15,43 +15,12 @@ body {
   overflow: hidden;
 }
 
-.header {
-  background-color: #ffffff;
-  padding: 15px;
-  width: 100%;
-}
-
-.header nav {
-  display: flex;
-  padding-left: 20px;
-}
-
-.header nav a {
-  text-decoration: none;
-}
-
-.logo {
-  display: flex;
-}
-
-.empText {
-  color: #7c992c;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-}
-
-.payText {
-  color: #868e97;
-  text-transform: uppercase;
-  font-family: "Montserrat", sans-serif;
-}
-
 .center-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: min(400px, 95vw);
   background: white;
   border-radius: 10px;
 }

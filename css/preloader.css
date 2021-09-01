@@ -1,0 +1,34 @@
+.preloader-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+.preloader {
+    width: 100px;
+    height: 100px;
+}
+
+.preloader rect{
+    width: 100px;
+    height: 100px;
+    fill: none;
+    stroke-width: 100px;
+    stroke: #7c992c;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 50%;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate{
+    to{
+        stroke-dashoffset: 250%;
+    }
+}

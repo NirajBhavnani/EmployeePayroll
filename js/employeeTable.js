@@ -12,6 +12,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
   });
 
   display();
+ 
 });
 
 // Table creation
@@ -23,8 +24,19 @@ async function display() {
     );
     let EmployeePayrollList = JSON.parse(EmployeePayrollList1);
     populateTable(EmployeePayrollList);
+
+    if(EmployeePayrollList1){
+    setTimeout(function () {
+      hidePreloader();
+    },1000);
+  }
+    
   } catch (error) {
     console.log(error);
+    setTimeout(function () {
+      hidePreloader();
+      window.alert('Server Fetch Error');
+    },1000);
   }
 }
 
@@ -105,3 +117,9 @@ document
       console.error(error);
     }
   });
+
+  var preloader = document.getElementById('preloader-bg');
+
+  function hidePreloader(){
+    preloader.style.display = 'none';
+  }
