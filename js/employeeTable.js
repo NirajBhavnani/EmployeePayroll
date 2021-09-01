@@ -123,3 +123,8 @@ document
   function hidePreloader(){
     preloader.style.display = 'none';
   }
+
+  function popUp(){
+    var popup = document.getElementById('myPopup');
+    popup.classList.toggle("show");
+  }

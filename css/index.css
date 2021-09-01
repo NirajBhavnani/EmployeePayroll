@@ -1,166 +1,238 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body, html{
-    min-height: 100vh;
+body,
+html {
+  min-height: 100vh;
 }
 
-body{
-    background-color: #f2f3f2;
+body {
+  background-color: #f2f3f2;
 }
 
-.header{
-    background-color: #ffffff;
-    padding: 15px;
-    width: 100%;
+.header {
+  background-color: #ffffff;
+  padding: 15px;
+  width: 100%;
 }
 
-.header nav{
-    display: flex;
-    padding-left: 20px;
-    justify-content: space-between;
+.header nav {
+  display: flex;
+  padding-left: 20px;
+  justify-content: space-between;
 }
 
-.header nav a{
-    text-decoration: none;
+.header nav a {
+  text-decoration: none;
 }
 
-.logo{
-    display: flex;
+.logo {
+  display: flex;
 }
 
-.empText{
-    color: #7c992c;
-    text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+.empText {
+  color: #7c992c;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
 }
 
-.payText{
-    color: #868e97;
-    text-transform: uppercase;
-    font-family: 'Montserrat' ,sans-serif;
+.payText {
+  color: #868e97;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
 }
 
-.logout{
-    background-color: #7c992c;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 50px;
-    font-size: large;
-    cursor: pointer;
+.right-content {
+  display: flex;
+  gap: 10px;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.head{
-    display: flex;
-    justify-content: space-between;
-    padding-top: 20px;
+.user {
+  background-color: #7c992c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: large;
+  cursor: pointer;
 }
 
-.container{
-    width: 80%;
-    min-height: 100vh;
-    margin: auto;
+.user:hover {
+  background-color: #868e97;
+  color: black;
 }
 
-.left{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 25%;
-    font-family: 'Roboto', sans-serif;
+.popup {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
-.emp-total{
-    background-color: #7c992c;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-size: large;
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  width: 160px;
+  background-color: #868e97;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  z-index: 3;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
 }
 
-.right{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 45%;
+/* popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
 }
 
-.right .search-bar-input{
-    visibility: hidden;
-    padding: 3px 20px;
-    border: 3px solid #00000029;
-    border-radius: 50px;
-    outline: none;
-    font-size: large;
-    transition: all 0.8s ease;
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.search-bar-input.active{
-    visibility: visible;
-    transition-delay: 0.7s;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.right button{
-    cursor: pointer;
+.logout {
+  background-color: #7c992c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-size: large;
+  cursor: pointer;
 }
 
-.right .searchBtn{
-    background-color: #FFFFFF;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 3px 3px  #00000029;
-    font-size: large;
-    transition: all 0.8s ease;
+.head {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
 }
 
-.searchBtn.animate{
-    transform: translateX(-50px);
+.container {
+  width: 80%;
+  min-height: 100vh;
+  margin: auto;
 }
 
-.right .newUserBtn{
-    background-color: #7c992c;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 15px;
-    font-size: large;
+.left {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 25%;
+  font-family: "Roboto", sans-serif;
 }
 
-.table-container{
-    margin: auto;
-    padding-top: 30px;
+.emp-total {
+  background-color: #7c992c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: large;
 }
 
-.myTable{
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    width: 100%;
+.right {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 45%;
 }
 
-.myTable thead{
-    background-color: #42515F;
-    color: #FFFFFF;
+.right .search-bar-input {
+  visibility: hidden;
+  padding: 3px 20px;
+  border: 3px solid #00000029;
+  border-radius: 50px;
+  outline: none;
+  font-size: large;
+  transition: all 0.8s ease;
 }
 
-.myTable thead th{
-    padding: 20px 0;
+.search-bar-input.active {
+  visibility: visible;
+  transition-delay: 0.7s;
 }
 
-.myTable tbody td{
-    padding: 5px 0;
+.right button {
+  cursor: pointer;
 }
 
-.myTable tbody td button{
-    padding: 5px 10px;
-    cursor: pointer;
-    font-size: large;
-    background-color: inherit;
-    color: #42515F;
-    border: none;
+.right .searchBtn {
+  background-color: #ffffff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 3px 3px #00000029;
+  font-size: large;
+  transition: all 0.8s ease;
+}
+
+.searchBtn.animate {
+  transform: translateX(-50px);
+}
+
+.right .newUserBtn {
+  background-color: #7c992c;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 15px;
+  font-size: large;
+}
+
+.table-container {
+  margin: auto;
+  padding-top: 30px;
+}
+
+.myTable {
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  width: 100%;
+}
+
+.myTable thead {
+  background-color: #42515f;
+  color: #ffffff;
+}
+
+.myTable thead th {
+  padding: 20px 0;
+}
+
+.myTable tbody td {
+  padding: 5px 0;
+}
+
+.myTable tbody td button {
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: large;
+  background-color: inherit;
+  color: #42515f;
+  border: none;
 }
