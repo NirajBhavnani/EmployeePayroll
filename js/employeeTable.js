@@ -90,7 +90,7 @@ document
       var emps = JSON.parse(
         await makeAJAXCall("GET", site_properties.data_url, true)
       );
-      emp = emps.filter((empData) => empData.eName.toLowerCase() == term);
+      emp = emps.filter((empData) => empData.eName.toLowerCase().includes(term));
       if (!emp) return;
       localStorage.setItem("empSearch", JSON.stringify(emp));
 

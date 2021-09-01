@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/css/employeePayrollLogin.css" />
   </head>
   <body>
-    <div class="header">
+    <!-- <div class="header">
       <nav>
         <a href="/pages/employeePayrollLogin.html">
           <div class="logo">
@@ -20,31 +20,31 @@
           </div>
         </a>
       </nav>
-    </div>
+    </div> -->
 
     <div class="center-container">
       <h1>Register</h1>
       <form id="Signup">
         <div class="text-field">
-          <input type="text" id="Phone" required />
+          <input type="text" id="Phone-Reg" required />
           <span></span>
           <label>Phone</label>
         </div>
 
         <div class="text-field">
-          <input type="text" id="Email" required />
+          <input type="text" id="Email-Reg" required />
           <span></span>
           <label>Email</label>
         </div>
 
         <div class="text-field">
-          <input type="password" id="Password" required />
+          <input type="password" id="Password-Reg" required />
           <span></span>
           <label>Password</label>
         </div>
 
         <div class="text-field">
-          <input type="password" id="cPassword" required />
+          <input type="password" id="cPassword-Reg" required />
           <span></span>
           <label>Confirm Password</label>
         </div>
@@ -56,5 +56,8 @@
         </div>
       </form>
     </div>
+    <script src="/service/httpService.js"></script>
+    <script src="/service/siteproperties.js"></script>
+    <script src="/js/employeePayrollSignup.js"></script>
   </body>
 </html>
