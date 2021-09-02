@@ -78,16 +78,12 @@ body {
 /* The actual popup */
 .popup .popuptext {
   visibility: hidden;
-  width: 160px;
-  background-color: #868e97;
+  background-color: #42515f;
   color: #ffffff;
-  text-align: center;
+  font-family: "Montserrat", sans-serif;
   border-radius: 6px;
-  padding: 8px 0;
+  padding: 8px 10px;
   z-index: 3;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
 }
 
 /* popup */

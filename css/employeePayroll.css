@@ -44,6 +44,73 @@ body{
     font-family: 'Montserrat' ,sans-serif;
 }
 
+.right-content {
+    display: flex;
+    gap: 10px;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .user {
+    background-color: #7c992c;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50px;
+    font-size: large;
+    cursor: pointer;
+  }
+  
+  .user:hover {
+    background-color: #868e97;
+    color: black;
+  }
+  
+  .popup {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    background-color: #42515f;
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 6px;
+    padding: 8px 10px;
+    z-index: 3;
+  }
+  
+  /* popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
 .logout{
     background-color: #7c992c;
     color: #ffffff;

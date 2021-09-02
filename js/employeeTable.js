@@ -118,13 +118,19 @@ document
     }
   });
 
+
+  // preloader
   var preloader = document.getElementById('preloader-bg');
 
   function hidePreloader(){
     preloader.style.display = 'none';
   }
 
+  //popup
   function popUp(){
-    var popup = document.getElementById('myPopup');
+    var popup = document.querySelector('.popuptext');
     popup.classList.toggle("show");
   }
+
+  myInfo = JSON.parse(localStorage.getItem('loginKey'));
+  document.querySelector(".popuptext").innerHTML = `Hello, ${myInfo.email} &nbsp; No: ${myInfo.phone}`
